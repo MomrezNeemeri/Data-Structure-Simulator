@@ -3,119 +3,28 @@
 
 
 
-int l;
+
 L_Node::L_Node(int value) : data(value), next(nullptr) {}
 
 LinkedListSimulator::LinkedListSimulator() : window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Linked List Simulator") {
     window.setFramerateLimit(500);
     font.loadFromFile("D:/dssim/MOD2/MOD2/fonts/Rough Serif.ttf");
 
-    text.setFont(font);
-    text.setCharacterSize(30);
-    text.setFillColor(sf::Color::White);
-
-    inputBox.setFont(font);
-    inputBox.setCharacterSize(30);
-    inputBox.setFillColor(sf::Color::White);
-    inputBox.setPosition(20.f, 100.f);
-    inputBox.setString("Input: ");
-
-    inputBox2.setFont(font);
-    inputBox2.setCharacterSize(30);
-    inputBox2.setFillColor(sf::Color::White);
-    inputBox2.setPosition(720.f, 100.f);
-    inputBox2.setString("Press Enter to PUSH");
-
-    inputBox3.setFont(font);
-    inputBox3.setCharacterSize(30);
-    inputBox3.setFillColor(sf::Color::White);
-    inputBox3.setPosition(720.f, 150.f);
-    inputBox3.setString("Press Delete to POP");
-
-
-
+    listText.setFont(font);
+    listText.setCharacterSize(20);
+    listText.setFillColor(Color::Blue);
+    listText.setPosition(20, 20);
 
     run();
 }
 
-
-void LinkedListSimulator::handleTextInput(const sf::Event::TextEvent& textEvent) {
-    if (textEvent.unicode < 128) {
-        if (textEvent.unicode == 8 && !inputText.empty()) {
-            inputText.pop_back();
-        }
-        else if (textEvent.unicode == 18 || textEvent.unicode == 39|| textEvent.unicode == 37) {
-            try {
-                if (count < 15) {
-                    //  saveToFile("output.txt", inputText); // Save to a file when Enter is pressed
-                    std::cout << "Entered Integer: " << std::stoi(inputText) << std::endl;
-                    count++;
-                    l = stoi(inputText);
-                    inputText.clear();
-                    cout << l << endl;
-               //     enqueueElement();
-                    if (textEvent.unicode == 18)
-                    {
-                        insertMiddleElement();
-                    }
-                    else if (textEvent.unicode == 37)
-                    {
-                        insertEndElement();
-
-                    }
-                    else
-                    {
-                        insertFrontElement();
-                    }
-                }
-                else {
-                    // Throw CountExceededException when count is greater than or equal to 10
-                    inputBox.setString("limit_exceed");
-                    throw CountExceededException();
-
-                }
-            }
-            catch (const CountExceededException& e) {
-                std::cerr << "Error: " << e.what() << std::endl;
-                return;
-            }
-            catch (const std::exception& e) {
-                std::cerr << "Error: " << e.what() << std::endl;
-            }
-        }
-        else {
-            inputText += static_cast<char>(textEvent.unicode);
-        }
-
-        text.setString(inputText);
-    }
-}
-
-void LinkedListSimulator::draw() {
-    window.clear();
-
-    window.draw(inputBox);
-    window.draw(inputBox2);
-    window.draw(inputBox3);
-    // Draw the entered text
-    text.setPosition(200.f, 100.f);
-    text.setString(inputText);
-    window.draw(text);
-    // window.display();
-}
-
 void LinkedListSimulator::run() {
-
-
     while (window.isOpen()) {
-
         handleEvents();
         update();
         render();
-        draw();
     }
 }
-
 
 
 void LinkedListSimulator::handleEvents() {
@@ -124,24 +33,22 @@ void LinkedListSimulator::handleEvents() {
         if (event.type == Event::Closed) {
             window.close();
         }
-        else if (event.type == sf::Event::TextEntered) {
-            handleTextInput(event.text);
-        }
-        else if (event.type == Event::KeyPressed) {
-            if (event.key.code == Keyboard::Right) {
-                //insertFrontElement();
+
+        if (event.type == Event::KeyPressed) {
+            if (event.key.code == Keyboard::I) {
+                insertFrontElement();
             }
-            else if (event.key.code == Keyboard::Left) {
-               // insertEndElement();
+            else if (event.key.code == Keyboard::E) {
+                insertEndElement();
             }
-            else if (event.key.code == Keyboard::Backspace) {
+            else if (event.key.code == Keyboard::D) {
                 deleteFrontElement();
             }
-            else if (event.key.code == Keyboard::Delete) {
+            else if (event.key.code == Keyboard::X) {
                 deleteEndElement();
             }
-            else if (event.key.code == Keyboard::Down) {
-                //insertMiddleElement();
+            else if (event.key.code == Keyboard::M) {
+                insertMiddleElement();
             }
         }
     }
@@ -152,13 +59,13 @@ void LinkedListSimulator::update() {
 }
 
 void LinkedListSimulator::render() {
-   // window.clear();
+    window.clear();
 
     // Draw the linked list
     drawList();
 
     // Draw the list text
-  //  window.draw(listText);
+    window.draw(listText);
 
 
 
@@ -166,8 +73,8 @@ void LinkedListSimulator::render() {
 }
 
 void LinkedListSimulator::insertFrontElement() {
-  //  int l = rand() % 100; // Generate a random element
-    L_Node* newL_Node = new L_Node(l);
+    int newElement = rand() % 100; // Generate a random element
+    L_Node* newL_Node = new L_Node(newElement);
     newL_Node->next = head;
     head = newL_Node;
 
@@ -176,8 +83,8 @@ void LinkedListSimulator::insertFrontElement() {
 }
 
 void LinkedListSimulator::insertEndElement() {
-   // int l = rand() % 100;
-    L_Node* newL_Node = new L_Node(l);
+    int newElement = rand() % 100;
+    L_Node* newL_Node = new L_Node(newElement);
 
     if (head == nullptr) {
         head = newL_Node;
@@ -195,8 +102,8 @@ void LinkedListSimulator::insertEndElement() {
 }
 
 void LinkedListSimulator::insertMiddleElement() {
-  //  int l = rand() % 100;
-    L_Node* newL_Node = new L_Node(l);
+    int newElement = rand() % 100;
+    L_Node* newL_Node = new L_Node(newElement);
 
     int position;
     cout << "Enter the position to insert (1-based index): ";
@@ -324,7 +231,8 @@ void LinkedListSimulator::updateListText() {
         listContent += to_string(current->data) + " ";
         current = current->next;
     }
-// listText.setString(listContent);
+
+    listText.setString(listContent);
 }
 
 void LinkedListSimulator::drawArrow(float startX, float startY, float endX, float endY, Color color = Color::Black) {
@@ -358,3 +266,5 @@ string LinkedListSimulator::formatAddress(int address) {
     ss << std::hex << (address & 0xFFFFFF); // Use only the last 24 bits for better visibility
     return ss.str();
 }
+
+

@@ -5,16 +5,8 @@
 #include"ballmoving.h"
 using namespace sf;
 using namespace std;
-TextInputExample::TextInputExample()
-{
 
-}
-TextInputExample::TextInputExample(RenderWindow* win1)
-{
-    if (win1 == nullptr) {
-        throw std::invalid_argument("Null pointer provided for RenderWindow");
-    }
-    
+TextInputExample::TextInputExample() : window(sf::VideoMode(800, 600), "Text Input Example") {
     if (!font.loadFromFile("D:/dssim/MOD2/MOD2/fonts/Rough Serif.ttf")) {
         std::cerr << "Error loading font file." << std::endl;
     }
@@ -23,14 +15,10 @@ TextInputExample::TextInputExample(RenderWindow* win1)
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
 
-    inputBox.setFont(font);
-    inputBox.setCharacterSize(30);
-    inputBox.setFillColor(sf::Color::White);
-    inputBox.setPosition(20.f, 500.f);
-    inputBox.setString("Input: ");
+
 }
 
-void TextInputExample::run(RenderWindow& window) {
+void TextInputExample::run() {
      count = 0;
     std::ofstream file("output.txt", std::ios::ate);
     error.setFont(font);
@@ -40,13 +28,13 @@ void TextInputExample::run(RenderWindow& window) {
     error.setPosition(100,100);
 
     while (window.isOpen() && flag) {
-        handleEvents(window);
-        draw(window);
+        handleEvents();
+        draw();
     }
 
 }
 
-void TextInputExample::handleEvents(RenderWindow& window) {
+void TextInputExample::handleEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
@@ -58,22 +46,15 @@ void TextInputExample::handleEvents(RenderWindow& window) {
         else if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::Escape || count==10) {
                 
+    
                 window.close();
-                ballmoving ball2;
-                ball2.run();
             }
         }
     }
 }
 
-void TextInputExample::draw(RenderWindow& window) {
+void TextInputExample::draw() {
     window.clear();
-
-    window.draw(inputBox);
-
-    // Draw the entered text
-    text.setPosition(200.f, 500.f);
-    text.setString(inputText);
     window.draw(text);
     window.display();
 }
@@ -129,4 +110,30 @@ void TextInputExample::saveToFile(const std::string& filename, const std::string
     else {
         std::cerr << "Unable to open file: " << filename << std::endl;
     }
+}
+ vector<int> TextInputExample::readFromFile() {
+    std::ifstream file("output.txt");
+
+        std::vector<int> integers;
+    if (file.is_open()) {
+        int value;
+
+        while (file >> value) {
+            integers.push_back(value);
+        }
+
+        file.close();
+
+        // Print the read integers
+      //  std::cout << "Read integers from file '" << filename << "': ";
+        for (const auto& intValue : integers) {
+            std::cout << intValue << " ";
+        }
+        std::cout << std::endl;
+    }
+    else {
+       // std::cerr << "Unable to open file: " << filename << std::endl;
+    }
+    return integers;
+   
 }

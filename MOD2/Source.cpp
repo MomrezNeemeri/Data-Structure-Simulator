@@ -7,6 +7,8 @@
 #include"stack.h"
 #include"Deque.h"
 #include"LinkedList.h"
+#include"BST.h"
+#include"Insertionsort.h"
 
 using namespace std;
 using namespace sf;
@@ -73,8 +75,8 @@ int main() {
 
                     if (x == 3)
                     {
-                        TextInputExample txt1;
-                        txt1.run(menu);
+                        BinaryTree bt;
+                        bt.render(bt, 400, 50, 70, 70);
                     }
                     if (x == 4)
                     {
@@ -83,16 +85,21 @@ int main() {
 
                     if (x == 5)
                     {
-                        TextInputExample txt1;
-                        txt1.run(menu);
-
+                      
                     }
 
                     if (x == 6)
                     {
+                        TextInputExample t1;
+                        t1.run();
+                        vector<int> v1;
+                        v1 = t1.readFromFile();
+                        InsertionSortSimulation it(v1);
+                        it.run();
 
-                        menu.clear();
-                        menu.close();
+                    }
+                    if (x == 7)
+                    {
                     }
                 }
             }

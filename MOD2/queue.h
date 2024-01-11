@@ -38,6 +38,7 @@ private:
     void drawQueue();
     void updateQueueText();
     void updateEnqueueMovement();
+    void updateDequeueMovement();
     void draw();
     void handleTextInput(const sf::Event::TextEvent& textEvent);
 

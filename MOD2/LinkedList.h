@@ -32,18 +32,11 @@ class LinkedListSimulator : public DataStructureSimulator {
 public:
     LinkedListSimulator();
 
-    class CountExceededException : public std::exception {
-    public:
-        const char* what() const noexcept override {
-            return "Count exceeded 15.";
-        }
-    };
-
 private:
     RenderWindow window;
     Font font;
     L_Node* head;
-   // Text listText;
+    Text listText;
     float movementDistance;
     RectangleShape movingRectangle;
     Clock insertFrontAnimationClock;
@@ -64,19 +57,6 @@ private:
     void updateListText();
     void drawArrow(float startX, float startY, float endX, float endY, Color color);
     string formatAddress(int address);
+    void addinstructions();
 
-    void draw();
-    void handleTextInput(const sf::Event::TextEvent& textEvent);
-
-
-    Text text;
-    Text inputBox;
-    Text inputBox2;
-    Text inputBox3;
-    Text inputBox4;
-    Text inputBox5;
-    string inputText;
-    int count;
 };
-
-
