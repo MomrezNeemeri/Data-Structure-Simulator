@@ -14,18 +14,26 @@ TextInputExample::TextInputExample() : window(sf::VideoMode(800, 600), "Text Inp
     text.setFont(font);
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
+    text.setPosition(380, 280);
+
+
+    string s = "Give Input : ";
+    
+    //window.draw(a);
+
 
 
 }
 
 void TextInputExample::run() {
      count = 0;
+
     std::ofstream file("output.txt", std::ios::ate);
     error.setFont(font);
     error.setFillColor(Color::Color(255, 222, 173));
-    error.setString("error");
+    error.setString("Input: ");
     error.setCharacterSize(40);
-    error.setPosition(100,100);
+    error.setPosition(100,280);
 
     while (window.isOpen() && flag) {
         handleEvents();
@@ -55,6 +63,7 @@ void TextInputExample::handleEvents() {
 
 void TextInputExample::draw() {
     window.clear();
+    window.draw(error);
     window.draw(text);
     window.display();
 }

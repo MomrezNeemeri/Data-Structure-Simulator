@@ -154,8 +154,10 @@
     <ClCompile Include="ballmoving.cpp" />
     <ClCompile Include="bg.cpp" />
     <ClCompile Include="BST.cpp" />
+    <ClCompile Include="bubblesort.cpp" />
     <ClCompile Include="DataStructure.cpp" />
     <ClCompile Include="Deque.cpp" />
+    <ClCompile Include="Heapsort.cpp" />
     <ClCompile Include="Insertionsort.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="mainmenu.cpp" />
@@ -168,8 +170,10 @@
     <ClInclude Include="ballmoving.h" />
     <ClInclude Include="bg.h" />
     <ClInclude Include="BST.h" />
+    <ClInclude Include="bubblesort.h" />
     <ClInclude Include="DataStructure.h" />
     <ClInclude Include="Deque.h" />
+    <ClInclude Include="Heapsort.h" />
     <ClInclude Include="Insertionsort.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="mainmenu.h" />

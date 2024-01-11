@@ -161,7 +161,7 @@ void BinaryTree::drawLine(sf::RenderWindow& window, float x1, float y1, float x2
 }
 
 void BinaryTree::render(BinaryTree& bst, float x, float y, float xOffset, float yOffset) {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "BST Insertion Simulation");
+    sf::RenderWindow window(sf::VideoMode(1200, 900), "BST Insertion Simulation");
     window.setFramerateLimit(60);
 
     while (window.isOpen()) {
@@ -179,7 +179,7 @@ void BinaryTree::render(BinaryTree& bst, float x, float y, float xOffset, float 
         window.clear(sf::Color::Green);
         window.draw(inputBox);
         window.draw(inputBox2);
-        window.draw(inputBox3);
+       // window.draw(inputBox3);
         // Draw the entered text
         text.setPosition(200.f, 100.f);
         text.setString(inputText);

@@ -19,6 +19,7 @@ public:
         }
     };
 
+
 private:
     sf::RenderWindow window;
     sf::Font font;
@@ -27,6 +28,7 @@ private:
     std::string inputText;
     bool flag = true;
     int count;
+   
 
     void saveToFile(const std::string& filename, const std::string& content);
     void handleTextInput(const sf::Event::TextEvent& textEvent);

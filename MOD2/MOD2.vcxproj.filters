@@ -51,6 +51,12 @@
     <ClCompile Include="Insertionsort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Heapsort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bubblesort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bg.h">
@@ -84,6 +90,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Insertionsort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Heapsort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bubblesort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

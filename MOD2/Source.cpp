@@ -9,6 +9,8 @@
 #include"LinkedList.h"
 #include"BST.h"
 #include"Insertionsort.h"
+#include"Heapsort.h"
+#include"bubblesort.h"
 
 using namespace std;
 using namespace sf;
@@ -76,7 +78,7 @@ int main() {
                     if (x == 3)
                     {
                         BinaryTree bt;
-                        bt.render(bt, 400, 50, 70, 70);
+                        bt.render(bt, 400, 50, 90, 90);
                     }
                     if (x == 4)
                     {
@@ -85,7 +87,12 @@ int main() {
 
                     if (x == 5)
                     {
-                      
+                        TextInputExample t1;
+                        t1.run();
+                        vector<int> v1;
+                        v1 = t1.readFromFile();
+                        BubbleSortSimulation it(v1);
+                        it.run();
                     }
 
                     if (x == 6)
@@ -100,6 +107,12 @@ int main() {
                     }
                     if (x == 7)
                     {
+                        TextInputExample t1;
+                        t1.run();
+                        vector<int> v1;
+                        v1 = t1.readFromFile();
+                         HeapSortSimulation it(v1);
+                        it.run();
                     }
                 }
             }
