@@ -4,6 +4,9 @@
 #include"mainmenu.h"
 #include"TextInputExample.h"
 #include"queue.h"
+#include"stack.h"
+#include"Deque.h"
+#include"LinkedList.h"
 
 using namespace std;
 using namespace sf;
@@ -53,8 +56,7 @@ int main() {
                     int x = mainmenu.MainMenuPressed();
                     if (x == 0)
                     {
-                        ballmoving ball1;
-                        ball1.run();
+                        StackSimulator s1;
                     }
 
                     if (x == 1)
@@ -66,8 +68,7 @@ int main() {
 
                     if (x == 2)
                     {
-                        TextInputExample txt1;
-                        txt1.run(menu);
+                        LinkedListSimulator l;
                     }
 
                     if (x == 3)
@@ -77,8 +78,7 @@ int main() {
                     }
                     if (x == 4)
                     {
-                        TextInputExample txt1;
-                        txt1.run(menu);
+                        DequeSimulator d;
                     }
 
                     if (x == 5)

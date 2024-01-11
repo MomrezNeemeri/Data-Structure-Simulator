@@ -16,7 +16,7 @@ public:
     class CountExceededException : public std::exception {
     public:
         const char* what() const noexcept override {
-            return "Count exceeded 10.";
+            return "Count exceeded 15.";
         }
     };
 

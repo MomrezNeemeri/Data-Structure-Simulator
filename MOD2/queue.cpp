@@ -46,11 +46,6 @@ QueueSimulator::QueueSimulator() : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEI
     inputBox3.setString("Press Delete to POP");
 
 
-
-
-
-
-
     run();
 }
 void QueueSimulator::draw() {
@@ -93,6 +88,8 @@ void QueueSimulator::handleEvents() {
                     //enqueueElement();
                 }
                 else if (event.key.code == sf::Keyboard::Delete) {
+                    if (count > 0)
+                        count--;
                    dequeueElement();
                 }
             }
@@ -107,7 +104,7 @@ void QueueSimulator::handleTextInput(const sf::Event::TextEvent& textEvent) {
         }
         else if (textEvent.unicode == 13) {
             try {
-                if (count < 10) {
+                if (count < 15) {
                   //  saveToFile("output.txt", inputText); // Save to a file when Enter is pressed
                     std::cout << "Entered Integer: " << std::stoi(inputText) << std::endl;
                     count++;

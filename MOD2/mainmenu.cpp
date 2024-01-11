@@ -61,6 +61,12 @@ MainMenu::MainMenu(float menuwidth, float menuheight)
 	mainMenu[7].setCharacterSize(40);
 	mainMenu[7].setPosition(825, 850);
 
+
+	mainMenu[8].setFont(font);
+	mainMenu[8].setFillColor(Color::Color(255, 222, 173));
+	mainMenu[8].setString("Data Structure Simulator");
+	mainMenu[8].setCharacterSize(40);
+	mainMenu[8].setPosition(675, 20);
 	MainMenuSelected = 0;
 
 }
@@ -71,7 +77,7 @@ MainMenu:: ~MainMenu()
 
 void MainMenu::draw(RenderWindow& window)
 {
-	for (int i = 0;i < 8;i++)
+	for (int i = 0;i < 9;i++)
 	{
 		window.draw(mainMenu[i]);
 	}
@@ -85,7 +91,7 @@ void MainMenu::MoveUp()
 		MainMenuSelected--;
 		if (MainMenuSelected == -1)
 		{
-			MainMenuSelected = 6;
+			MainMenuSelected = 7;
 		}
 		mainMenu[MainMenuSelected].setFillColor(Color::Color(178, 34, 34));
 	}
@@ -97,7 +103,7 @@ void MainMenu::MoveDown()
 	{
 		mainMenu[MainMenuSelected].setFillColor(Color::Color(255, 222, 173));
 		MainMenuSelected++;
-		if (MainMenuSelected == 7)
+		if (MainMenuSelected == 8)
 		{
 			MainMenuSelected = 0;
 		}
@@ -114,7 +120,7 @@ void MainMenu::drawlevel(RenderWindow& levels)
 {
 
 
-	for (int i = 0;i < 8;i++)
+	for (int i = 0;i < 9;i++)
 	{
 		levels.draw(mainMenu[i]);
 	}

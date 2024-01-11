@@ -154,6 +154,8 @@
     <ClCompile Include="ballmoving.cpp" />
     <ClCompile Include="bg.cpp" />
     <ClCompile Include="DataStructure.cpp" />
+    <ClCompile Include="Deque.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -164,6 +166,8 @@
     <ClInclude Include="ballmoving.h" />
     <ClInclude Include="bg.h" />
     <ClInclude Include="DataStructure.h" />
+    <ClInclude Include="Deque.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="mainmenu.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="stack.h" />
