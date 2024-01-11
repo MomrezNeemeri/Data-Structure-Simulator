@@ -7,7 +7,6 @@
 L_Node::L_Node(int value) : data(value), next(nullptr) {}
 
 LinkedListSimulator::LinkedListSimulator() : window(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Linked List Simulator") {
-    window.setFramerateLimit(500);
     font.loadFromFile("D:/dssim/MOD2/MOD2/fonts/Rough Serif.ttf");
 
     listText.setFont(font);
@@ -67,7 +66,7 @@ void LinkedListSimulator::render() {
     // Draw the list text
     window.draw(listText);
 
-
+    addinstruction();
 
     window.display();
 }
@@ -267,4 +266,15 @@ string LinkedListSimulator::formatAddress(int address) {
     return ss.str();
 }
 
+void LinkedListSimulator::addinstruction() {
+    string s = "I for insert Front \nE for insert Back \nD for delete front \nX for delete end \nM for insert middle";
 
+    Text a;
+    a.setString(s);
+    a.setCharacterSize(25);
+    a.setFillColor(Color::Red);
+
+    a.setFont(font);
+    a.setPosition(500, 100);
+    window.draw(a);
+}

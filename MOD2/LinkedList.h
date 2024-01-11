@@ -7,7 +7,7 @@
 #include <sstream>
 #include "DataStructure.h"
 
-const int WINDOW_WIDTH = 1200;
+const int WINDOW_WIDTH = 1600;
 const int WINDOW_HEIGHT = 900;
 const int RECTANGLE_WIDTH = 80;
 const int RECTANGLE_HEIGHT = 50;
@@ -56,7 +56,6 @@ private:
     void drawList();
     void updateListText();
     void drawArrow(float startX, float startY, float endX, float endY, Color color);
+    void addinstruction();
     string formatAddress(int address);
-    void addinstructions();
-
 };
