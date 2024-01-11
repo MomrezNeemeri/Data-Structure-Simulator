@@ -3,6 +3,7 @@
 #include"bg.h"
 #include"mainmenu.h"
 #include"TextInputExample.h"
+#include"queue.h"
 
 using namespace std;
 using namespace sf;
@@ -10,7 +11,7 @@ using namespace sf;
 int main() {
     Sprite backmenu;
     Event menuevent;
-    RenderWindow menu(VideoMode(1800, 1000), "menu");
+    RenderWindow menu(VideoMode(1800, 900), "menu");
     MainMenu mainmenu(1800, 1000);
 
     Texture texmenu;
@@ -58,32 +59,32 @@ int main() {
 
                     if (x == 1)
                     {
-                        TextInputExample txt1;
-                        txt1.run();
+                        QueueSimulator q1;
+                       
 
                     }
 
                     if (x == 2)
                     {
                         TextInputExample txt1;
-                        txt1.run();
+                        txt1.run(menu);
                     }
 
                     if (x == 3)
                     {
                         TextInputExample txt1;
-                        txt1.run();
+                        txt1.run(menu);
                     }
                     if (x == 4)
                     {
                         TextInputExample txt1;
-                        txt1.run();
+                        txt1.run(menu);
                     }
 
                     if (x == 5)
                     {
                         TextInputExample txt1;
-                        txt1.run();
+                        txt1.run(menu);
 
                     }
 

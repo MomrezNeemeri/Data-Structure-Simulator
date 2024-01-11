@@ -4,8 +4,17 @@
 #include <sstream>
 #include"ballmoving.h"
 using namespace sf;
+using namespace std;
+TextInputExample::TextInputExample()
+{
 
-TextInputExample::TextInputExample() : window(sf::VideoMode(800, 600), "Text Input Example") {
+}
+TextInputExample::TextInputExample(RenderWindow* win1)
+{
+    if (win1 == nullptr) {
+        throw std::invalid_argument("Null pointer provided for RenderWindow");
+    }
+    
     if (!font.loadFromFile("D:/dssim/MOD2/MOD2/fonts/Rough Serif.ttf")) {
         std::cerr << "Error loading font file." << std::endl;
     }
@@ -13,9 +22,15 @@ TextInputExample::TextInputExample() : window(sf::VideoMode(800, 600), "Text Inp
     text.setFont(font);
     text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
+
+    inputBox.setFont(font);
+    inputBox.setCharacterSize(30);
+    inputBox.setFillColor(sf::Color::White);
+    inputBox.setPosition(20.f, 500.f);
+    inputBox.setString("Input: ");
 }
 
-void TextInputExample::run() {
+void TextInputExample::run(RenderWindow& window) {
      count = 0;
     std::ofstream file("output.txt", std::ios::ate);
     error.setFont(font);
@@ -25,13 +40,13 @@ void TextInputExample::run() {
     error.setPosition(100,100);
 
     while (window.isOpen() && flag) {
-        handleEvents();
-        draw();
+        handleEvents(window);
+        draw(window);
     }
 
 }
 
-void TextInputExample::handleEvents() {
+void TextInputExample::handleEvents(RenderWindow& window) {
     sf::Event event;
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
@@ -51,8 +66,14 @@ void TextInputExample::handleEvents() {
     }
 }
 
-void TextInputExample::draw() {
+void TextInputExample::draw(RenderWindow& window) {
     window.clear();
+
+    window.draw(inputBox);
+
+    // Draw the entered text
+    text.setPosition(200.f, 500.f);
+    text.setString(inputText);
     window.draw(text);
     window.display();
 }

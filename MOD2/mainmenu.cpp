@@ -9,52 +9,57 @@ MainMenu::MainMenu(float menuwidth, float menuheight)
 	mainMenu[0].setFillColor(Color::Color(255, 222, 173));
 	mainMenu[0].setString("Stack");
 	mainMenu[0].setCharacterSize(40);
-	mainMenu[0].setPosition(825, 100);
+	mainMenu[0].setPosition(825, 150);
 
 
 	mainMenu[1].setFont(font);
 	mainMenu[1].setFillColor(Color::Color(255, 222, 173));
 	mainMenu[1].setString("Queue");
 	mainMenu[1].setCharacterSize(40);
-	mainMenu[1].setPosition(825, 200);
+	mainMenu[1].setPosition(825, 250);
 
 
 	mainMenu[2].setFont(font);
 	mainMenu[2].setFillColor(Color::Color(255, 222, 173));
 	mainMenu[2].setString("LinkedList");
 	mainMenu[2].setCharacterSize(40);
-	mainMenu[2].setPosition(825, 300);
+	mainMenu[2].setPosition(825, 350);
 
 
 	mainMenu[3].setFont(font);
 	mainMenu[3].setFillColor(Color::Color(255, 222, 173));
-	mainMenu[3].setString("Sorting");
+	mainMenu[3].setString("BST");
 	mainMenu[3].setCharacterSize(40);
-	mainMenu[3].setPosition(825, 400);
+	mainMenu[3].setPosition(825, 450);
 
 
 
 	mainMenu[4].setFont(font);
 	mainMenu[4].setFillColor(Color::Color(255, 222, 173));
-	mainMenu[4].setString("BST");
+	mainMenu[4].setString("Deque");
 	mainMenu[4].setCharacterSize(40);
-	mainMenu[4].setPosition(825, 500);
+	mainMenu[4].setPosition(825, 550);
 
 
 	mainMenu[5].setFont(font);
 	mainMenu[5].setFillColor(Color::Color(255, 222, 173));
-	mainMenu[5].setString("Deque");
+	mainMenu[5].setString("Bubble Sort");
 	mainMenu[5].setCharacterSize(40);
-	mainMenu[5].setPosition(825, 600);
+	mainMenu[5].setPosition(825, 650);
 
 
 
 	mainMenu[6].setFont(font);
 	mainMenu[6].setFillColor(Color::Color(255, 222, 173));
-	mainMenu[6].setString("Segment Tree");
+	mainMenu[6].setString("Insertion Sort");
 	mainMenu[6].setCharacterSize(40);
-	mainMenu[6].setPosition(825, 700);
+	mainMenu[6].setPosition(825, 750);
 
+	mainMenu[7].setFont(font);
+	mainMenu[7].setFillColor(Color::Color(255, 222, 173));
+	mainMenu[7].setString("Heap Sort");
+	mainMenu[7].setCharacterSize(40);
+	mainMenu[7].setPosition(825, 850);
 
 	MainMenuSelected = 0;
 
@@ -66,7 +71,7 @@ MainMenu:: ~MainMenu()
 
 void MainMenu::draw(RenderWindow& window)
 {
-	for (int i = 0;i < 7;i++)
+	for (int i = 0;i < 8;i++)
 	{
 		window.draw(mainMenu[i]);
 	}
@@ -109,7 +114,7 @@ void MainMenu::drawlevel(RenderWindow& levels)
 {
 
 
-	for (int i = 0;i < 7;i++)
+	for (int i = 0;i < 8;i++)
 	{
 		levels.draw(mainMenu[i]);
 	}

@@ -153,14 +153,20 @@
   <ItemGroup>
     <ClCompile Include="ballmoving.cpp" />
     <ClCompile Include="bg.cpp" />
+    <ClCompile Include="DataStructure.cpp" />
     <ClCompile Include="mainmenu.cpp" />
+    <ClCompile Include="queue.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="stack.cpp" />
     <ClCompile Include="TextInputExample.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ballmoving.h" />
     <ClInclude Include="bg.h" />
+    <ClInclude Include="DataStructure.h" />
     <ClInclude Include="mainmenu.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="stack.h" />
     <ClInclude Include="TextInputExample.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
